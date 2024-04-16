@@ -1,1 +1,4 @@
+
+Some random text.
+=======
 This is my file and I am writing in it.
