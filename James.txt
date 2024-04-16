@@ -1,1 +1,2 @@
-This is my file and I am writing in it.
+This is my file and I am trying to merge it.
+I will also be writing in the 2nd line.
