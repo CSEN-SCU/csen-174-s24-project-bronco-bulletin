@@ -1,1 +1,1 @@
-This github isa collection of files for the Bulletin Boys project CSEN174
+This github is a collection of files for the Bulletin Boys project CSEN174
