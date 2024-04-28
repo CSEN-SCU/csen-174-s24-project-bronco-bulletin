@@ -1,1 +1,2 @@
-This github is a collection of files for the Bulletin Boys project CSEN174
+# Bronco Bulletin
+Bronco Bulletin is an application that allows students at Santa Clara University to post advertisements about school activities, clubs, listings, and more.
