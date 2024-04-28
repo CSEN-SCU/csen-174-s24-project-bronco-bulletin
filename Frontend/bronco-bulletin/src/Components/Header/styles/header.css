@@ -1,0 +1,20 @@
+.navbar {
+	background-color: #C8C8C8;
+	font-family: "Noto Sans", sans-serif;
+	color: var(--red-color);
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+	color: inherit;
+}
+
+.navbar a {
+	background: transparent;
+}
+.navbar a:hover {
+	color: var(--red-color);
+	filter: brightness(0.85);
+}
