@@ -9,10 +9,11 @@ body {
 	font-family: "Heebo", sans-serif;
 }
 
-.logo span {
-	color: var(--dark-orange-color);
-}
-
 .text-white {
 	color: var(--white-color) !important;
+}
+
+#page {
+  height: calc( 100vh - 72px );
+  display: flex;
 }

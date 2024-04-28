@@ -1,0 +1,44 @@
+.sidebar {
+  width: 15vw;
+  height: calc( 100vh - 72px );
+	background-color: var(--dark-grey-color);
+	font-family: "Noto Sans", sans-serif;
+	color: var(--white-color);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+	color: inherit;
+  text-decoration: none;
+}
+
+.sidebar a {
+	background: transparent;
+}
+
+.sidebar a:hover {
+	color: var(--white-color);
+	filter: brightness(0.85);
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+}
+
+ul {
+  padding-left: 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+li {
+  padding-bottom: 4px;
+}

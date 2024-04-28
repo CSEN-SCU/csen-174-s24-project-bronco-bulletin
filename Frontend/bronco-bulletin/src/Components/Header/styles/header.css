@@ -1,5 +1,5 @@
 .navbar {
-	background-color: #C8C8C8;
+	background-color: var(--grey-color);
 	font-family: "Noto Sans", sans-serif;
 	color: var(--red-color);
 }

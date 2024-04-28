@@ -35,6 +35,13 @@ body {
 	--light-grey-color-3: rgba(var(--light-grey-color-rgb), var(--tint-3));
 	--light-grey-color-4: rgba(var(--light-grey-color-rgb), var(--tint-4));
 
+  --grey-color: #C8C8C8;
+  --grey-color-rgb: 52, 52, 52;
+  --grey-color-1: rgba(var(--grey-color-rgb), var(--tint-1));
+	--grey-color-2: rgba(var(--grey-color-rgb), var(--tint-2));
+	--grey-color-3: rgba(var(--grey-color-rgb), var(--tint-3));
+	--grey-color-4: rgba(var(--grey-color-rgb), var(--tint-4));
+
 	--dark-grey-color: #484747;
 	--dark-grey-color-rgb: 72, 71, 71;
 	--dark-grey-color-1: rgba(var(--dark-grey-color-rgb), var(--tint-1));
@@ -63,4 +70,8 @@ body {
 
 body {
 	background-color: var(--light-grey-color);
+}
+
+.text-md {
+  font-size: 1.2em;
 }
