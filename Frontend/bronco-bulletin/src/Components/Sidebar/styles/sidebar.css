@@ -33,6 +33,10 @@ a:active {
   margin-top: auto;
 }
 
+.btn-danger {
+  background-color: var(--red-color);
+}
+
 ul {
   padding-left: 0;
   text-decoration: none;

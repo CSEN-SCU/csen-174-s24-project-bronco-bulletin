@@ -1,5 +1,7 @@
 .item {
   width: 280px;
+  height: 320px;
+  overflow: hidden;
 }
 
 .img {
