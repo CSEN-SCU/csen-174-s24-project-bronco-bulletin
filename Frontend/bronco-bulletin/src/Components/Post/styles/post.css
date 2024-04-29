@@ -1,0 +1,15 @@
+.item {
+  width: 280px;
+}
+
+.img {
+  height: 150px;
+}
+
+.text-sm {
+  font-size: 12px;
+}
+
+.text-md {
+  font-size: 16px;
+}
