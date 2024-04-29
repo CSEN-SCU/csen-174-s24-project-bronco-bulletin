@@ -1,0 +1,17 @@
+.item {
+  width: 280px;
+  height: 320px;
+  overflow: hidden;
+}
+
+.img {
+  height: 150px;
+}
+
+.text-sm {
+  font-size: 12px;
+}
+
+.text-md {
+  font-size: 16px;
+}

@@ -1,0 +1,19 @@
+.App {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+body {
+	font-family: "Heebo", sans-serif;
+}
+
+.text-white {
+	color: var(--white-color) !important;
+}
+
+#page {
+  height: calc( 100vh - 72px );
+  display: flex;
+}

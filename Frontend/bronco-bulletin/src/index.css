@@ -1,0 +1,77 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+#root,
+html,
+body {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+
+	/* Tints */
+	--tint-1: 0.9;
+	--tint-2: 0.7;
+	--tint-3: 0.5;
+	--tint-4: 0.1;
+
+	/* Colors */
+	--white-color: #FFFFFF;
+	--white-color-rgb: 255, 255, 255;
+	--white-color-1: rgba(var(--white-color-rgb), var(--tint-1));
+	--white-color-2: rgba(var(--white-color-rgb), var(--tint-2));
+	--white-color-3: rgba(var(--white-color-rgb), var(--tint-3));
+	--white-color-4: rgba(var(--white-color-rgb), var(--tint-4));
+
+	--light-grey-color: #D9D9D9;
+	--light-grey-color-rgb: 217, 217, 217;
+	--light-grey-color-1: rgba(var(--light-grey-color-rgb), var(--tint-1));
+	--light-grey-color-2: rgba(var(--light-grey-color-rgb), var(--tint-2));
+	--light-grey-color-3: rgba(var(--light-grey-color-rgb), var(--tint-3));
+	--light-grey-color-4: rgba(var(--light-grey-color-rgb), var(--tint-4));
+
+  --grey-color: #C8C8C8;
+  --grey-color-rgb: 52, 52, 52;
+  --grey-color-1: rgba(var(--grey-color-rgb), var(--tint-1));
+	--grey-color-2: rgba(var(--grey-color-rgb), var(--tint-2));
+	--grey-color-3: rgba(var(--grey-color-rgb), var(--tint-3));
+	--grey-color-4: rgba(var(--grey-color-rgb), var(--tint-4));
+
+	--dark-grey-color: #484747;
+	--dark-grey-color-rgb: 72, 71, 71;
+	--dark-grey-color-1: rgba(var(--dark-grey-color-rgb), var(--tint-1));
+	--dark-grey-color-2: rgba(var(--dark-grey-color-rgb), var(--tint-2));
+	--dark-grey-color-3: rgba(var(--dark-grey-color-rgb), var(--tint-3));
+	--dark-grey-color-4: rgba(var(--dark-grey-color-rgb), var(--tint-4));
+
+	--black-color: #030406;
+	--black-color-rgb: 3, 4, 6;
+	--black-color-1: rgba(var(--black-color-rgb), var(--tint-1));
+	--black-color-2: rgba(var(--black-color-rgb), var(--tint-2));
+	--black-color-3: rgba(var(--black-color-rgb), var(--tint-3));
+	--black-color-4: rgba(var(--black-color-rgb), var(--tint-4));
+
+  --red-color: #9D1534;
+  --red-color-rgb: 157, 21, 52;
+  --red-color-1: rgba(var(--red-color-rgb), var(--tint-1));
+	--red-color-2: rgba(var(--red-color-rgb), var(--tint-2));
+	--red-color-3: rgba(var(--red-color-rgb), var(--tint-3));
+	--red-color-4: rgba(var(--red-color-rgb), var(--tint-4));
+}
+
+#root {
+	display: flex;
+}
+
+body {
+	background-color: var(--light-grey-color);
+}
+
+.text-md {
+  font-size: 1.2em;
+}
