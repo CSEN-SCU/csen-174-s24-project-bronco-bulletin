@@ -1,8 +1,11 @@
-from sqlalchemy import URL, create_engine, text, inspect
+from sqlalchemy import create_engine, URL
+from sqlalchemy.orm import sessionmaker
+from datetime import datetime
+import uuid
+import pytz
+from post import Base, Post, Tag, post_tag_association
 
-POST_TABLE = "Posts"
-
-class PGManager():
+class PGManager:
     def __init__(self, username, password):
         self.connection_string = URL.create(
             "postgresql",
@@ -12,26 +15,59 @@ class PGManager():
             database="csen174",
             query={"sslmode": "require"}
         )
-
         self.engine = create_engine(self.connection_string)
-        self.create_table_if_not_exists(POST_TABLE)
+        Base.metadata.create_all(self.engine)  # Ensure tables are created
+        
+        # Create a session factory to manage sessions
+        self.Session = sessionmaker(bind=self.engine)
 
-    def create_table_if_not_exists(self, table_name):
-        inspector = inspect(self.engine)
-        if not inspector.has_table(table_name.lower()):
-            with self.engine.connect() as conn:
-                conn.execute(text(f"CREATE TABLE {table_name} (title TEXT, description TEXT)"))
+    def insert_tag(self, tag_name):
+        # Create a new session
+        session = self.Session()
+        try:
+            tag = session.query(Tag).filter_by(name=tag_name).first()
+            if not tag:
+                new_tag = Tag(tag_id=uuid.uuid4().hex, name=tag_name)
+                session.add(new_tag)
+                session.commit()
+        finally:
+            # Always close the session
+            session.close()
 
-    def insert_card(self, title, description):
-         with self.engine.connect() as conn:
-            conn.execute(
-                text(f"INSERT INTO {POST_TABLE} (title, description) VALUES (:title, :description)"),
-                [{"title": title, "description": description}],
-            )
-            conn.commit()
+    def insert_post(self, author, title, description, tag_names=[]):
+        post_id = uuid.uuid4().hex
+        current_time = datetime.now(pytz.timezone('America/Los_Angeles'))
+        post = Post(
+            post_id=post_id,
+            author=author,
+            title=title,
+            description=description,
+            current_time=current_time,
+        )
 
-    def get_cards(self):
-        pass
-    
+        # Create a new session
+        session = self.Session()
+        try:
+            tag_objects = []
+            for tag_name in tag_names:
+                tag = session.query(Tag).filter_by(name=tag_name).first()
+                if tag is None:
+                    raise ValueError(f"Unknown tag name {tag_name}")
+                tag_objects.append(tag)
 
-    
+            post.tags.extend(tag_objects)  # Assign the tags
+            session.add(post)
+            session.commit()
+        finally:
+            # Always close the session
+            session.close()
+
+    def get_posts(self):
+        # Create a new session
+        session = self.Session()
+        try:
+            posts = session.query(Post).all()
+            return posts
+        finally:
+            # Always close the session
+            session.close()
