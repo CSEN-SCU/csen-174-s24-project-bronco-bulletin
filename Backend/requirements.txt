@@ -1,3 +1,6 @@
 flask
 openai
 python-dotenv
+sqlalchemy
+psycopg2
+pytz
