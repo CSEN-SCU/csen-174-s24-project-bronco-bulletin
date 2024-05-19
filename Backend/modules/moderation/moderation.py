@@ -1,7 +1,5 @@
 from openai import OpenAI
 
-import os
-
 class Moderator:
   """Class for flagging if text or images should be moderated."""
 
