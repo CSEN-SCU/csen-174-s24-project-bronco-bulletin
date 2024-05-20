@@ -41,4 +41,4 @@ This will run the tests in the directory following the specified format:
 * [ModerateContent](https://moderatecontent.com) - Our FREE API provides an automated rating for any image (adult, teen and everyone). We process over a 1000000 images per month for FREE.
 
 ## Authors
-[Eric Hicks](https://github.com/hicks8989)
+* [Eric Hicks](https://github.com/hicks8989)
