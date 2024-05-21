@@ -1,6 +1,6 @@
 from os import getenv
 from dotenv import load_dotenv
-from dbHandler import PGManager
+from Backend.modules.database.dbHandler import PGManager
 
 load_dotenv()  # Load environment variables from .env file
 
