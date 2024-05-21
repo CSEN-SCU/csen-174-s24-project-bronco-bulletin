@@ -14,6 +14,7 @@ load_dotenv()  # Load environment variables from .env file
 
 app = Flask(__name__)
 cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 manager = PGManager("csen174_owner", os.getenv("PGPASSWORD"))
 
 @cross_origin
