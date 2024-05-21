@@ -2,6 +2,7 @@ import sys
 import os
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
 
 # Adjust the PYTHONPATH to include the parent directory of Backend
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -12,13 +13,16 @@ from modules.database.post import Tag
 load_dotenv()  # Load environment variables from .env file
 
 app = Flask(__name__)
+cors = CORS(app)
 manager = PGManager("csen174_owner", os.getenv("PGPASSWORD"))
 
+@cross_origin
 @app.route('/', methods=['GET'])
 def index():
     return "Hello, world!"
 
 # Route to get all posts
+@cross_origin
 @app.route('/posts', methods=['GET'])
 def get_all_posts():
     try:
@@ -36,6 +40,7 @@ def get_all_posts():
         return jsonify({'error': str(e)}), 500
 
 # Route to add a new post
+@cross_origin
 @app.route('/posts', methods=['POST'])
 def add_post():
     try:
@@ -63,6 +68,7 @@ def add_post():
         return jsonify({'error': str(e)}), 500
 
 # Route to get posts by a specific tag
+@cross_origin
 @app.route('/posts/tag/<string:tag_name>', methods=['GET'])
 def get_posts_by_tag(tag_name):
     try:
