@@ -29,7 +29,7 @@ const Sidebar = () => {
           </ul>
         </div>
         <div className="bottom">
-          <a role="button" class="btn btn-danger btn-lg active" href="/create">Create Post</a>
+          <a role="button" className="btn btn-danger btn-lg active" href="/create">Create Post</a>
         </div>
       </div>
     </aside>

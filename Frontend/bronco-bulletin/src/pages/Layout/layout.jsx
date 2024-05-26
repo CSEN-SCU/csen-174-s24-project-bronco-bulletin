@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles/header.css";
 
-const Header = () => {
+const Layout = () => {
 	return (
 		<header>
       <nav className="navbar shadow-sm p-3">
@@ -13,4 +13,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default Layout;
