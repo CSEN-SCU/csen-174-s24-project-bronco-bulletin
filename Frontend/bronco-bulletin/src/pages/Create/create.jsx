@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Tags } from "./Components/Tags";
+import axios from "axios";
 import "./styles/create.css";
+import { redirect } from "react-router-dom";
 
 function Create() {
   const [title, setTitle] = useState("");
@@ -9,9 +11,27 @@ function Create() {
   const [image, setImage] = useState({});
   const [imageName, setImageName] = useState("");
 
+  const postData = async (data) => {
+    try {
+      await axios.post("https://csen-174-s24-project-bronco-bulletin.onrender.com/posts", data, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      redirect("/");
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    postData({ title, description, tags, author: "Some author", image});
+  }
+
   return (
     <div className="container mt-4 mb-3 p-0 rounded" id="createPostForm">
-      <form className="m-4">
+      <form onSubmit={handleSubmit} className="m-4">
         <div className="form-group mb-4">
           <label htmlFor="title">Post Title</label>
           <input placeholder="Add a title" value={title} onChange={(e) => setTitle(e.target.value)} type="text" className="form-control" id="title" name="title" />
@@ -19,7 +39,6 @@ function Create() {
         <div className="form-group mb-4">
           <label htmlFor="description">Description</label>
           <textarea placeholder="Add a description" value={description} onChange={(e) => {
-            console.log(e.target.value);
             if (!e.target.value.endsWith('\n') && !e.target.value.startsWith(' '))
               setDescription(e.target.value);
           }} className="form-control" id="description" name="description" maxLength={151} rows={5} />
