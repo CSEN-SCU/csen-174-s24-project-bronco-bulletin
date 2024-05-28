@@ -1,21 +1,22 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Layout } from './pages/Layout';
+import { Route, createRoutesFromElements, createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home } from './pages/Home';
 import { Create } from './pages/Create';
 import './App.css';
 
 function App() {
+  const RoutesJSX = (
+    <Route path="/">
+      <Route index element={<Home />} />
+      <Route path="create" element={<Create />} />
+    </Route>
+  );
+
+  const routes = createRoutesFromElements(RoutesJSX);
+  const router = createBrowserRouter(routes);
+
   return (
     <div className="App">
-      <Layout />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/">
-            <Route index element={<Home />} />
-            <Route path="create" element={<Create />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router}/>
     </div>
     
   );

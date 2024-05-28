@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios"; 
+import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Post } from "../Post";
 import "./styles/board.css";
 
@@ -19,12 +20,14 @@ const Content = () => {
     ).catch(error => { 
       console.error(error); 
     })
-  })
+  });
+
+  const Posts = posts.map((post, idx) => <Post key={idx} banner={post.banner} title={post.title} tags={post.tags} description={post.description} />);
 
 	return (
 		<div className="board">
 			<div className="container">
-        { posts.map((post, idx) => <Post key={idx} banner={post.banner} title={post.title} tags={post.tags} description={post.description}/> )}
+        { Posts }
       </div>
 		</div>
 	);
