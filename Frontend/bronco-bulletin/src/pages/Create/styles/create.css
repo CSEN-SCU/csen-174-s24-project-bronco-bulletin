@@ -1,0 +1,21 @@
+#createPostForm {
+  background-color: #EEECEC;
+  max-width: 541px;
+  max-height: 621px;
+  height: 100vh;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+}
+
+form {
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+}
