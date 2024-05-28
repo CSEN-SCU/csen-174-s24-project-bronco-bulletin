@@ -2,7 +2,7 @@ import React from 'react';
 import { WithContext as ReactTags, SEPARATORS } from 'react-tag-input';
 import "./styles/tags.css";
 
-const TOPICS = ["Events", "Clubs", "Activities", "Tutors", "Misc"];
+const TOPICS = ["Events", "Clubs", "Activities", "Tutoring"];
 
 const suggestions = TOPICS.map((topic) => {
   return {
@@ -19,9 +19,14 @@ const Tags = (props) => {
   };
 
   const handleAddition = (tag) => {
-    props.setTags((prevTags) => {
-      return [...prevTags, tag];
-    });
+    if (TOPICS.includes(tag.text)) {
+      props.setTags((prevTags) => {
+        return [...prevTags, tag];
+      });
+      props.setError(null);
+    } else {
+      props.setError("Invalid tag name.");
+    }
   };
 
   return (
@@ -36,7 +41,6 @@ const Tags = (props) => {
         handleAddition={handleAddition}
         inputFieldPosition="inline"
         autocomplete
-        maxTags={3}
       />
     </div>
   );

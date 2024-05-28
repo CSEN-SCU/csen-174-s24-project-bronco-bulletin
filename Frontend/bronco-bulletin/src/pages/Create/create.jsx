@@ -6,6 +6,7 @@ import { redirect } from "react-router-dom";
 import { Header } from '../../components/Header';
 
 function Create() {
+  const [error, setError] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState([]);
@@ -27,7 +28,7 @@ function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postData({ title, description, tags, author: "Some author", image});
+    postData({ title, description, tags: tags.map((tag) => tag.text), author: "Some author", image});
   }
 
   return (
@@ -45,11 +46,12 @@ function Create() {
               if (!e.target.value.endsWith('\n') && !e.target.value.startsWith(' '))
                 setDescription(e.target.value);
             }} className="form-control" id="description" name="description" maxLength={151} rows={5} />
-            <small id="descriptionCounter" className="form-text text-muted text-end">{ 150 - description.length }</small>
+            <small id="descriptionCounter" className="form-text text-muted">{ 150 - description.length }</small>
           </div>
           <div className="form-group mb-4">
             <label htmlFor="tags">Tags</label>
-            <Tags tags={tags} setTags={setTags}/>
+            <Tags tags={tags} setTags={setTags} setError={setError}/>
+            { error ? <small className="form-text text-danger">{error}</small> : null}
           </div>
           <div className="form-group mb-5">
             <label htmlFor="imageUpload" className="form-label">Image</label>
