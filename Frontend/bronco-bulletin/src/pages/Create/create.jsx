@@ -1,24 +1,40 @@
+import { useState } from "react";
+import { Tags } from "./Components/Tags";
 import "./styles/create.css";
 
 function Create() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [tags, setTags] = useState([]);
+  const [image, setImage] = useState({});
+  const [imageName, setImageName] = useState("");
+
   return (
-    <div className="container mt-3 mb-3 p-0 rounded" id="createPostForm">
+    <div className="container mt-4 mb-3 p-0 rounded" id="createPostForm">
       <form className="m-4">
         <div className="form-group mb-4">
           <label htmlFor="title">Post Title</label>
-          <input type="text" className="form-control" id="title" name="title" />
+          <input placeholder="Add a title" value={title} onChange={(e) => setTitle(e.target.value)} type="text" className="form-control" id="title" name="title" />
         </div>
         <div className="form-group mb-4">
           <label htmlFor="description">Description</label>
-          <textarea className="form-control" id="description" name="description" maxLength={150} rows={5} />
+          <textarea placeholder="Add a description" value={description} onChange={(e) => {
+            console.log(e.target.value);
+            if (!e.target.value.endsWith('\n') && !e.target.value.startsWith(' '))
+              setDescription(e.target.value);
+          }} className="form-control" id="description" name="description" maxLength={151} rows={5} />
+          <small id="descriptionCounter" className="form-text text-muted text-end">{ 150 - description.length }</small>
         </div>
-        <div className="form-group mb-5">
+        <div className="form-group mb-4">
           <label htmlFor="tags">Tags</label>
-          <input type="text" className="form-control" id="tags" name="tags" />
+          <Tags tags={tags} setTags={setTags}/>
         </div>
         <div className="form-group mb-5">
           <label htmlFor="imageUpload" className="form-label">Image</label>
-          <input className="form-control" type="file" id="imageUpload" accept="image/png, image/jpeg" />
+          <input value={imageName} onChange={(e) => {
+            setImage(e.target.files[0]);
+            setImageName(e.target.value);
+          }} className="form-control" type="file" id="imageUpload" accept="image/png, image/jpeg" />
         </div>
         <div className="bottom">
           <button type="submit" className="btn btn-danger btn-lg">Create Post</button>

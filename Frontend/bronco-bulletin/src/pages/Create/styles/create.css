@@ -15,3 +15,7 @@
 form {
   width: 100%;
 }
+
+textarea {
+  resize: none;
+}
