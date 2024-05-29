@@ -7,8 +7,8 @@ Base = declarative_base()
 post_tag_association = Table(
     'post_tag',
     Base.metadata,
-    Column('post_id', String, ForeignKey('Posts.post_id')),
-    Column('tag_id', String, ForeignKey('Tags.tag_id'))
+    Column('post_id', String, ForeignKey('Posts.post_id', ondelete='CASCADE')),
+    Column('tag_id', String, ForeignKey('Tags.tag_id', ondelete='CASCADE'))
 )
 
 class Post(Base):
