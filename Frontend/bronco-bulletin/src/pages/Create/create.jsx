@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Tags } from "./Components/Tags";
 import axios from "axios";
 import "./styles/create.css";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Header } from '../../components/Header';
 
 function Create() {
@@ -13,6 +13,7 @@ function Create() {
   const [image, setImage] = useState({});
   const [imageName, setImageName] = useState("");
 
+  const navigate = useNavigate();
   const postData = async (data) => {
     try {
       await axios.post("https://csen-174-s24-project-bronco-bulletin.onrender.com/posts", data, {
@@ -20,7 +21,7 @@ function Create() {
           'Content-Type': 'application/json'
         }
       });
-      redirect("/");
+      navigate("/");
     } catch(e) {
       console.log(e);
     }
