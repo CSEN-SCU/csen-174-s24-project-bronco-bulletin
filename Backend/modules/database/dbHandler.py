@@ -65,7 +65,7 @@ class PGManager:
     def get_posts(self):
         session = self.Session()
         try:
-            posts = session.query(Post).options(joinedload(Post.tags)).all()
+            posts = session.query(Post).all()
             return posts
         finally:
             session.close()

@@ -23,7 +23,8 @@ class Post(Base):
     tags = relationship(
         'Tag',
         secondary=post_tag_association,
-        backref='posts'
+        backref='posts',
+        lazy='joined'
     )
 
     def __repr__(self):
