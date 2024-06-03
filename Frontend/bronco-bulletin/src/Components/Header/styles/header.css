@@ -1,9 +1,3 @@
-.navbar {
-	background-color: var(--grey-color);
-	font-family: "Noto Sans", sans-serif;
-	color: var(--red-color);
-}
-
 a,
 a:visited,
 a:hover,
@@ -18,3 +12,35 @@ a:active {
 	color: var(--red-color);
 	filter: brightness(0.85);
 }
+
+/* src/styles/header.css */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--grey-color);
+	font-family: "Noto Sans", sans-serif;
+	color: var(--red-color);
+  }
+  
+  .logo {
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+  }
+  
+  .login-button {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 1rem;
+  }
+  
+  .login-button:hover {
+	background-color: #0056b3;
+  }
+  
