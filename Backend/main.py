@@ -34,7 +34,8 @@ def get_all_posts():
             'title': post.title,
             'description': post.description,
             'current_time': post.current_time,
-            'tags': [tag.name for tag in post.tags]
+            'tags': [tag.name for tag in post.tags],
+            'image': post.image
         } for post in posts]
         return jsonify({'posts': posts_list})
     except Exception as e:
