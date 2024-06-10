@@ -10,8 +10,7 @@ function Create() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState([]);
-  const [image, setImage] = useState({});
-  const [imageName, setImageName] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   const navigate = useNavigate();
   const postData = async (data) => {
@@ -29,7 +28,7 @@ function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postData({ title, description, tags: tags.map((tag) => tag.text), author: "Some author", image});
+    postData({ title, description, tags: tags.map((tag) => tag.text), author: "Some author", image: imageUrl });
   }
 
   return (
@@ -56,10 +55,7 @@ function Create() {
           </div>
           <div className="form-group mb-5">
             <label htmlFor="imageUpload" className="form-label">Image</label>
-            <input value={imageName} onChange={(e) => {
-              setImage(e.target.files[0]);
-              setImageName(e.target.value);
-            }} className="form-control" type="file" id="imageUpload" accept="image/png, image/jpeg" />
+            <input placeholder="Add an image url" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} className="form-control" type="text" id="imageUpload" />
           </div>
           <div className="bottom">
             <button type="submit" className="btn btn-danger btn-lg">Create Post</button>
