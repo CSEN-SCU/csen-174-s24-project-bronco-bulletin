@@ -13,19 +13,19 @@ const Sidebar = () => {
         <div>
           <ul className="text-md">
             <li>
-              <Link to="/?filter=events">Events</Link>
+              <Link to="/?filter=Events">Events</Link>
             </li>
             <li>
-              <Link to="/?filter=clubs">Clubs</Link>
+              <Link to="/?filter=Clubs">Clubs</Link>
             </li>
             <li>
-              <Link to="/?filter=activities">Activities</Link>
+              <Link to="/?filter=Activities">Activities</Link>
             </li>
             <li>
-              <Link to="/?filter=tutors">Tutors</Link>
+              <Link to="/?filter=Tutoring">Tutors</Link>
             </li>
             <li>
-              <Link to="/?filter=misc">Misc.</Link>
+              <Link to="/">Misc.</Link>
             </li>
           </ul>
         </div>
