@@ -19,6 +19,7 @@ class Post(Base):
     title = Column(String)
     description = Column(String)
     current_time = Column(DateTime)
+    image = Column(String)
 
     tags = relationship(
         'Tag',
@@ -27,7 +28,7 @@ class Post(Base):
     )
 
     def __repr__(self):
-        return f"Post(post_id='{self.post_id}', author='{self.author}', title='{self.title}', description='{self.description}', current_time='{self.current_time}')"
+        return f"Post(post_id='{self.post_id}', author='{self.author}', title='{self.title}', description='{self.description}', current_time='{self.current_time}', image={self.image})"
 
 class Tag(Base):
     __tablename__ = "Tags"

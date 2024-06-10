@@ -50,18 +50,20 @@ def add_post():
         title = data.get('title')
         description = data.get('description')
         tag_names = data.get('tags', [])
+        image = data.get('image')
         
         if not author or not title or not description:
             return jsonify({'error': 'Missing required fields'}), 400
         
-        post = manager.insert_post(author, title, description, tag_names)
+        post = manager.insert_post(author, title, description, tag_names, image)
         return jsonify({
             'post_id': post.post_id,
             'author': post.author,
             'title': post.title,
             'description': post.description,
             'current_time': post.current_time,
-            'tags': [tag.name for tag in post.tags]
+            'tags': [tag.name for tag in post.tags],
+            'image': post.image
         }), 201
     except ValueError as ve:
         return jsonify({'error': str(ve)}), 400
