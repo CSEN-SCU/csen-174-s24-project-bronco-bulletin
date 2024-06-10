@@ -1,13 +1,14 @@
-// src/Components/Header/Header.jsx
 import React from "react";
-import { auth, googleProvider, signInWithPopup } from '../../firebase';
+import { auth, googleProvider } from '../../firebase';
+import { signInWithPopup } from 'firebase/auth';  // Import the method here
+import { Link } from "react-router-dom";
 import "./styles/header.css";
 
 const Header = () => {
   const handleLogin = async () => {
     console.log("Login button clicked");
     try {
-      const result = await auth.signInWithPopup(googleProvider);
+      const result = await signInWithPopup(auth, googleProvider);
       console.log('Logged in successfully', result);
       alert('Logged in successfully');
     } catch (error) {
@@ -19,12 +20,12 @@ const Header = () => {
   return (
     <header>
       <nav className="navbar shadow-sm p-3">
-        <a className="logo navbar-brand mx-2" href="/">
-          Bronco Bulletin
-        </a>
         <button className="login-button" onClick={handleLogin}>
           Login
         </button>
+        <Link className="logo navbar-brand navbar mx-2" to="/">
+          Bronco Bulletin
+        </Link>
       </nav>
     </header>
   );
