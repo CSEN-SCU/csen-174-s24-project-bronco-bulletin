@@ -3,9 +3,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Post } from "../Post";
 import "./styles/board.css";
+import { useSearchParams } from "react-router-dom";
 
 const Content = () => {
   const [posts, setPosts] = useState([]);
+  const [filterParams, setSearchParams] = useSearchParams();
+  filterParams.get("filter");
 
   useEffect(() => {
     axios.get('https://csen-174-s24-project-bronco-bulletin.onrender.com/posts', {
@@ -22,7 +25,13 @@ const Content = () => {
     })
   });
 
-  const Posts = posts.map((post, idx) => <Post key={idx} banner={post.banner} title={post.title} tags={post.tags} description={post.description} />);
+  const Posts = posts.filter((post) => {
+    const filter = filterParams.get("filter");
+    if (!filter)
+      return true;
+    
+    return post.tags.includes(filter);
+  }).map((post, idx) => <Post key={idx} banner={post.banner} title={post.title} tags={post.tags} description={post.description} />);
 
 	return (
 		<div className="board">
