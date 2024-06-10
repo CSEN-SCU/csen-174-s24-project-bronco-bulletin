@@ -31,7 +31,7 @@ const Content = () => {
       return true;
     
     return post.tags.includes(filter);
-  }).map((post, idx) => <Post key={idx} banner={post.banner} title={post.title} tags={post.tags} description={post.description} />);
+  }).map((post, idx) => <Post key={idx} banner={post.image} title={post.title} tags={post.tags} description={post.description} />);
 
 	return (
 		<div className="board">
