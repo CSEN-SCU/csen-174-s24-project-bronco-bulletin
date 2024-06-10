@@ -1,16 +1,22 @@
-import { Header } from './Components/Header';
-import { Sidebar } from './Components/Sidebar';
-import { Board } from './Components/Board';
+import { Route, createRoutesFromElements, createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Home } from './pages/Home';
+import { Create } from './pages/Create';
 import './App.css';
 
 function App() {
+  const RoutesJSX = (
+    <Route path="/">
+      <Route index element={<Home />} />
+      <Route path="create" element={<Create />} />
+    </Route>
+  );
+
+  const routes = createRoutesFromElements(RoutesJSX);
+  const router = createBrowserRouter(routes);
+
   return (
     <div className="App">
-      <Header />
-      <div id='page'>
-        <Sidebar />
-        <Board />
-      </div>
+      <RouterProvider router={router}/>
     </div>
   );
 }

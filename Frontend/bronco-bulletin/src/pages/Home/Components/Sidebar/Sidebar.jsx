@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./styles/sidebar.css";
 
 const Sidebar = () => {
@@ -12,24 +13,24 @@ const Sidebar = () => {
         <div>
           <ul className="text-md">
             <li>
-              <a href="/?filter=events">Events</a>
+              <Link to="/?filter=Events">Events</Link>
             </li>
             <li>
-              <a href="/?filter=clubs">Clubs</a>
+              <Link to="/?filter=Clubs">Clubs</Link>
             </li>
             <li>
-              <a href="/?filter=activities">Activities</a>
+              <Link to="/?filter=Activities">Activities</Link>
             </li>
             <li>
-              <a href="/?filter=tutors">Tutors</a>
+              <Link to="/?filter=Tutoring">Tutors</Link>
             </li>
             <li>
-              <a href="/?filter=misc">Misc.</a>
+              <Link to="/">Misc.</Link>
             </li>
           </ul>
         </div>
         <div className="bottom">
-          <a role="button" class="btn btn-danger btn-lg active" href="/create">Create Post</a>
+          <Link role="button" className="btn btn-danger btn-lg active" to="/create">Create Post</Link>
         </div>
       </div>
     </aside>

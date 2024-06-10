@@ -58,6 +58,11 @@ class PGManager:
             post.tags.extend(tag_objects)
             session.add(post)
             session.commit()
+            
+            # Ensure that all necessary attributes are loaded
+            session.refresh(post)
+            post = session.query(Post).options(joinedload(Post.tags)).filter_by(post_id=post.post_id).one()
+
             return post
         finally:
             session.close()
