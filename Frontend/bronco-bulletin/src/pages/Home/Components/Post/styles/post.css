@@ -15,3 +15,24 @@
 .text-md {
   font-size: 16px;
 }
+
+.item.card {
+  transition: transform 0.1s ease;
+}
+
+.item.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top {
+  transition: transform 0.1s ease;
+}
+
+.item.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.card-link {
+  text-decoration: none; /* Ensures no underline on the link */
+  color: inherit; /* Inherits the color to avoid default link color */
+}

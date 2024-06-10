@@ -56,6 +56,6 @@ for tag in tags:
     manager.insert_tag(tag)
 
 for post in posts:
-    manager.insert_post(post["author"], post["title"], post["description"], post["tags"])
+    manager.insert_post(post["author"], post["title"], post["description"], post["tags"], post["image"])
     
 print("Done")
