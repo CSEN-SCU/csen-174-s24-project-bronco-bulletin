@@ -35,7 +35,7 @@ class PGManager:
         finally:
             session.close()
 
-    def insert_post(self, author, title, description, tag_names=[], image):
+    def insert_post(self, author, title, description, tag_names=[], image=""):
         post_id = uuid.uuid4().hex
         current_time = datetime.now(pytz.timezone('America/Los_Angeles'))
         post = Post(
