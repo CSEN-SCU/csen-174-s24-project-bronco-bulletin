@@ -13,6 +13,9 @@ const Sidebar = () => {
         <div>
           <ul className="text-md">
             <li>
+              <Link to="/">All</Link>
+            </li>
+            <li>
               <Link to="/?filter=Events">Events</Link>
             </li>
             <li>
@@ -23,9 +26,6 @@ const Sidebar = () => {
             </li>
             <li>
               <Link to="/?filter=Tutoring">Tutors</Link>
-            </li>
-            <li>
-              <Link to="/">Misc.</Link>
             </li>
           </ul>
         </div>
