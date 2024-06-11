@@ -36,7 +36,9 @@ const Content = () => {
 	return (
 		<div className="board">
 			<div className="container">
-        { Posts }
+        <div className="row">
+          { Posts }
+        </div>
       </div>
 		</div>
 	);
