@@ -34,7 +34,7 @@ function Create() {
   return (
     <div>
       <Header />
-      <div className="container mt-4 mb-3 p-0 rounded" id="createPostForm">
+      <div className="container create-container mt-4 mb-3 p-0 rounded" id="createPostForm">
         <form onSubmit={handleSubmit} className="m-4">
           <div className="form-group mb-4">
             <label htmlFor="title">Post Title</label>
