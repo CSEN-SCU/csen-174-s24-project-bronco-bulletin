@@ -2,6 +2,8 @@ import React from "react";
 import "./styles/post.css";
 
 const Post = ({ banner, title, description }) => {
+  banner = banner || "https://cdn.vectorstock.com/i/500p/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg";
+
   return (
     <div className="col-auto">
       <a href={banner} target="_blank" rel="noopener noreferrer" className="card-link">
